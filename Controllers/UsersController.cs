@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcStartApp.Models.Db;
 using MvcStartApp.Models.Repositories;
 
 namespace MvcStartApp.Controllers
@@ -17,5 +18,19 @@ namespace MvcStartApp.Controllers
             var authors = await _repo.GetUsers();
             return View(authors);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(User newUser)
+        {
+            await _repo.Register(newUser);
+            return View(newUser);
+        }
+
     }
 }

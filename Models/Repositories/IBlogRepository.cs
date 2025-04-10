@@ -1,10 +1,11 @@
-﻿using MvcStartApp.Models.Db;
+﻿using Microsoft.AspNetCore.Mvc;
+using MvcStartApp.Models.Db;
 
 namespace MvcStartApp.Models.Repositories
 {
     public interface IBlogRepository
     {
-        Task AddUser(User user);
+        Task Register(User user);
 
         Task<User[]> GetUsers();
     }
