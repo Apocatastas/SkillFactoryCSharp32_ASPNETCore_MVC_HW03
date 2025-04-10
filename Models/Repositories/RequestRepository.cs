@@ -17,8 +17,7 @@ namespace MvcStartApp.Models.Repositories
             request.Date = DateTime.Now;
             request.Id = Guid.NewGuid();
             var entry = _context.Entry(request);
-            if (entry.State == EntityState.Detached)
-                await _context.Requests.AddAsync(request);
+            if (entry.State == EntityState.Detached) await _context.Requests.AddAsync(request);
             await _context.SaveChangesAsync();
         }
 

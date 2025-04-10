@@ -31,6 +31,5 @@ namespace MvcStartApp.Controllers
             await _repo.Register(newUser);
             return View(newUser);
         }
-
     }
 }

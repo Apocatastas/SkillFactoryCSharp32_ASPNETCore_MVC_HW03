@@ -20,19 +20,15 @@ namespace MvcStartApp.Models.Repositories
             user.JoinDate = DateTime.Now;
             user.Id = Guid.NewGuid();
 
-            // Добавление пользователя
             var entry = _context.Entry(user);
             if (entry.State == EntityState.Detached)
                 await _context.Users.AddAsync(user);
 
-            // Сохранение изменений
             await _context.SaveChangesAsync();
-           // return Content($"Registration successful, {user.FirstName}");
         }
 
         public async Task<User[]> GetUsers()
         {
-            // Получим всех активных пользователей
             return await _context.Users.ToArrayAsync();
         }
     }

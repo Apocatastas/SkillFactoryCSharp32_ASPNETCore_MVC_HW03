@@ -6,18 +6,12 @@ namespace MvcStartApp.Controllers
 {
     public class FeedbackController : Controller
     {
-        /// <summary>
-        ///  Метод, возвращающий страницу с отзывами
-        /// </summary>
         [HttpGet]
         public IActionResult Add()
         {
             return View();
         }
 
-        /// <summary>
-        /// Метод для Ajax-запросов
-        /// </summary>
         [HttpPost]
         public IActionResult Add(Feedback feedback)
         {
